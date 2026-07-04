@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac OS
+.DS_Store
+
+# Data
+data/
+archive/
+
+# Models (Optional, but usually not pushed to git if they are huge. EfficientNet is ~20MB, so it's fine, but let's allow models/)
+# models/
+models/best_ResNet50_binary.h5
+models/
