@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skin Cancer Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div> 
+
+    <div class="container glass-panel">
+        <header>
+            <h1>Skin Lesion Analysis</h1>
+            <p>Upload a dermoscopy image for AI-powered hierarchical classification.</p>
+        </header>
+
+        <main>
+            <div id="drop-zone" class="drop-zone">
+                <span class="drop-zone__prompt">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="upload-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <br>Drag & Drop an image here or click to browse
+                </span>
+                <input type="file" name="image" id="file-input" accept="image/jpeg, image/png, image/jpg" hidden>
+            </div>
+
+            <div id="preview-container" class="hidden">
+                <img id="image-preview" src="" alt="Image Preview">
+                <button id="analyze-btn" class="primary-btn">Analyze Lesion</button>
+                <button id="reset-btn" class="secondary-btn">Try Another</button>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Neural networks are analyzing...</p>
+            </div>
+
+            <div id="results" class="results-panel hidden glass-panel">
+                <h2>Analysis Complete</h2>
+                
+                <div class="result-box primary-result">
+                    <h3>Primary Diagnosis</h3>
+                    <div class="result-value" id="res-primary">--</div>
+                    <div class="confidence-bar-container">
+                        <div class="confidence-bar" id="bar-primary"></div>
+                    </div>
+                    <div class="confidence-text" id="conf-primary">--%</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
